@@ -1,0 +1,117 @@
+
+% diapositiva en blanc que genera pandoc perquè no hi ha dades de títol al md:
+%\begin{frame}\frametitle{}
+%
+%\end{frame}
+
+\section{Objectius}
+
+\begin{frame}[fragile]\frametitle{Objectius}
+
+Els \textbf{objectius} d'aquest presentació són:
+
+\begin{itemize}[<+->]
+\item
+  Provar \emph{pandoc} per passar de \texttt{markdown} a
+  \texttt{beamer}.
+\item
+  Estudiar el procés.
+\item
+  Introduir personalitzacions.
+\item
+  Publicar el resultat a
+  \href{http://phobos.xtec.cat/jqueralt}{cataLàTeX}
+\end{itemize}
+\end{frame}
+
+\section{Procediment}
+
+\begin{frame}[fragile]\frametitle{Primer pas}
+
+\begin{enumerate}[1.]
+\item
+  Crear un document de text en format \emph{markdown} anomenat
+  \texttt{test.md}
+\item
+  Els títols de Nivell 1 (\texttt{\#}) seran les seccions de la
+  presentació.
+\item
+  Els títols de Nivell 2 (\texttt{\#\#}) seran els títols de les
+  diapositives.
+\end{enumerate}
+Sintaxi markdown: \url{http://daringfireball.net/projects/markdown/}
+
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Segon pas}
+
+\begin{itemize}
+\item
+  Preparar un fitxer \texttt{matriu.tex} amb les especificacions per
+  beamer.
+\item
+  Que cridi a fitxer \texttt{test.tex} on hi haurà el contingut de les
+  diapositives.
+\end{itemize}
+Documentació de Beamer: \url{http://ctan.org/beamer}
+
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Tercer pas}
+
+\begin{itemize}
+\item
+  Fer que \emph{pandoc} transformi \texttt{test.md} en \texttt{test.tex}
+\end{itemize}
+Comandament de pandoc:
+
+\texttt{pandoc test.md -{}-slide-level 2 -t beamer -o test.tex}
+
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Quart pas}
+
+\begin{itemize}
+\item
+  Crear el document PDF de la presentació.
+\end{itemize}
+Comandament de LaTeX:
+
+\texttt{pdflatex matriu.tex}
+
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Pas alternatiu}
+
+\begin{itemize}
+\item
+  Fer el pas directament des de pandoc.
+\end{itemize}
+Comandament de pandoc:
+
+\texttt{pandoc -{}-toc -{}-slide-level 2 -V theme:NomTema -t beamer test.md -o test.pdf}
+
+\end{frame}
+
+\section{Resultat}
+
+\begin{frame}\frametitle{}
+
+\centering\includegraphics[scale=0.4]{fitxer.jpg}
+
+\end{frame}
+
+\begin{frame}\frametitle{Resultat}
+
+El que esteu veient.
+
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Crèdits}
+
+Idea original: \url{https://github.com/jeromyanglim}
+
+Imatge amb llicència CC de
+\href{http://flickrcc.bluemountains.net/flickrCC/index.php}{FlicrCC}
+
+\end{frame}

@@ -1,0 +1,58 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Document matriu per generar
+%  presentacions de beamer
+%  a partir de markdown.
+%  Idea original de 
+%  https://github.com/jeromyanglim
+%  (C)2012 Joan Queralt Gil
+%  jqueralt a gmail.com
+%  Llicència CC 3.0
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{beamer} 
+% configuració de beamer:  
+%\usetheme{Manhattan}                                
+%\usetheme{Boadilla}
+\usetheme{Ilmenau}  
+\usecolortheme{beaver}
+\setbeamertemplate{navigation symbols}{} %treu els símbols de navegació
+
+% paquets de llenguatge 
+\usepackage[catalan]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+% tipografia
+\usepackage[scaled]{berasans}   % tipus de lletra dejavusans http://www.tug.dk/FontCatalogue/dejavusans/  
+
+% dades de document:
+\title[De markdown a beamer]{Creació de presentacions beamer des de markdown}
+\subtitle{Una característica de pandoc}
+\author{Joan Queralt Gil}
+\institute{cata\LaTeX{}}
+\date{\today}
+
+% document
+\begin{document}
+
+% primer marc: títol
+\begin{frame}
+\titlepage
+\begin{itemize}
+\item \url{http://phobos.xtec.cat/jqueralt}
+\end{itemize}
+\end{frame}
+
+% segon marc: resum
+\begin{frame}
+\frametitle{Resum}
+\tableofcontents
+\end{frame}
+
+% resta de la presentació
+% atenció a la pàgina de títol en blanc que pot generar pandoc si no existeix al fitxer md
+
+\input{testbeamer.tex}    % fitxer tex produït per markdown a partir de testbeamer.md
+
+\end{document}
+
+
